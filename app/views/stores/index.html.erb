@@ -1,0 +1,25 @@
+<div class="pagination_links"><%= link_to "< Previous Page", "#{@stores['pager']['previous_page_path']}" %>| <%= link_to "Next Page >", "#{@stores['pager']['next_page_path']}" %></div>
+
+<div class="LCBOTables">
+<table width=100%>
+  <tbody>
+    <tr>
+      <td width="60%"><b>Name</b></td>
+      <td width="20%"><b>City</b></td>
+      <td width="20%"><b>Telephone</b></td>
+    <% @stores['result'].each do |store| %>
+    <tr>
+      <td>
+        <%= link_to store['name'], store_path(store['id']) %>
+      </td>
+      <td>
+        <%= store['city'] %>
+      </td>
+      <td>
+        <%= store['telephone'] %>
+      </td>
+    </tr> 
+    <% end %>
+  </tbody>
+</table>
+</div>

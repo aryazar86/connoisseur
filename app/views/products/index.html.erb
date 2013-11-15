@@ -1,0 +1,25 @@
+<div class="pagination_links"><%= link_to "< Previous Page", "products?page=#{@products['pager']['previous_page']}" %> |
+<%= link_to "Next Page >", "products?page=#{@products['pager']['next_page']}" %></div>
+<div class="LCBOTables">
+<table>
+  <tbody>
+    <tr>
+      <td width="60%"><b>Name</b></td>
+      <td with="10%"><b>Price</b></td>
+      <td with="20%"><b>Type</b></td>
+    <% @products['result'].each do |product| %>
+    <tr>
+      <td>
+        <%= link_to product['name'], product_path(product['id']) %>
+      </td>
+      <td>
+        <%= "$" + format_price(product['price_in_cents']) %>
+      </td>
+      <td>
+        <%= product['primary_category'] %>
+      </td>
+    </tr> 
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connoisseur</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1>Let's get our Booze On!</h1>
+<%= link_to "Browse through Products", products_path %> | <%= link_to "Browse Stores", stores_path %> 
+<br>
+<%= yield %>
+
+</body>
+</html>

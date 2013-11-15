@@ -1,0 +1,24 @@
+<div class="left_side">
+<% if @product['result']['image_url'] %>
+  <%= image_tag(@product['result']['image_url'], :size => "200x200", :alt => @product['result']['name']) %>
+<% end %>
+<h1><%= (@product['result']['name']).upcase %></h1>
+<p><%= '$' + format_price(@product['result']['price_in_cents']) %></p>
+</div>
+
+<div class="right_side">
+<div class="pagination_links"><%= link_to "< Previous Page", "#{@product['result']['id']}?page=#{@stores['pager']['previous_page']}" %> | <%= link_to "Next Page >", "#{@product['result']['id']}?page=#{@stores['pager']['next_page']}" %></div>
+<div class="LCBOTables" id="storebyproducts">
+<table>
+  <tbody>
+    <tr><td>Store</td><td>Inventory</td></tr>
+<% @stores['result'].each do |store| %>
+<tr><td>
+<%= link_to store['name'], store_path(store['id']) %>
+</td><td><%= store['inventory_count'] %> </td>
+</tr>
+<% end %>
+</tbody>
+</table>
+</div>
+</div>
