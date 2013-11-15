@@ -1,9 +1,13 @@
-<div class="left_side">
+<div class="left_side"><div class="info">
 <% if @product['result']['image_url'] %>
   <%= image_tag(@product['result']['image_url'], :size => "200x200", :alt => @product['result']['name']) %>
 <% end %>
 <h1><%= (@product['result']['name']).upcase %></h1>
-<p><%= '$' + format_price(@product['result']['price_in_cents']) %></p>
+<p><b>Price:</b> <%= '$' + format_price(@product['result']['price_in_cents']) %></p>
+<% if @product['result']['tasting_note'] %>
+  <p><b>Notes:</b> <%= @product['result']['tasting_note'] %> </p>
+<% end %>
+</div>
 </div>
 
 <div class="right_side">
